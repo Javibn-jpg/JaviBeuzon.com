@@ -2,7 +2,7 @@ export const trabajos = [
     {
         'id': 'javibeuzónweb',
         'nombre': 'Javibeuzón.com',
-        'url': 'https://javibeuzon.com',
+        'url': 'javibeuzon.vercel.app/inicio',
         'tecnologias': 'HTML, CSS, JavaScript, React',
         'categorias': {
              'es': 'Desarrollo Web',
