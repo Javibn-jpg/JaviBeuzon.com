@@ -1,0 +1,24 @@
+{
+    "routes": [
+      {
+        "src": "/docs/(.*)",
+        "headers": { "cache-control": "s-maxage=604800" },
+        "dest": "/docs/$1"
+      }
+    ],
+    "headers": [
+      {
+        "source": "/docs/(.*).pdf",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/pdf"
+          },
+          {
+            "key": "Content-Disposition",
+            "value": "attachment"
+          }
+        ]
+      }
+    ]
+  }

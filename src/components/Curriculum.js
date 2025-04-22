@@ -4,17 +4,35 @@ import { LanguageContext } from '../context/LanguageContext';
 export const Curriculum = () => {
   const { texts, language } = useContext(LanguageContext);
   
-  const pdfUrl = "/docs/curriculum Javier Beuzón Neva.pdf";
+  const pdfUrl = "/docs/curriculum_Javier_Beuzon_Neva.pdf";
   
   // Función para manejar la descarga
-  const handleDownload = () => {
-    const link = document.createElement('a');
-    link.href = pdfUrl;
-    link.download = "Curriculum_Javier_Beuzon.pdf"; // Nombre del archivo a descargar
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
-  };
+const handleDownload = () => {
+  fetch(pdfUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.blob();
+    })
+    .then(blob => {
+      // Crear URL directamente del blob original, sin crear uno nuevo
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.setAttribute('download', 'Curriculum_Javier_Beuzon.pdf');
+      document.body.appendChild(link);
+      link.click();
+      // Limpieza
+      setTimeout(() => {
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(url);
+      }, 100);
+    })
+    .catch(error => {
+      console.error('Error downloading the PDF:', error);
+    });
+};
 
   // Contenido traducible del currículum
   const curriculumContent = {
