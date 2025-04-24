@@ -23,12 +23,14 @@ export const ListadoTrabajos = ({limite}) => {
         trabajos.slice(0, limite).map(trabajo => {
           return (
           <article key={trabajo.id} className="work-item">
-            <div className="mask">
-              <img src={"/images/"+trabajo.id+".png"} alt={trabajo.nombre} />
-            </div>
-            <span>{getTranslatedValue(trabajo.categorias)}</span>
-            <h2><Link to={"/proyecto/"+trabajo.id}>{trabajo.nombre}</Link></h2>
-            <h3>{trabajo.tecnologias}</h3>
+            <Link to={"/proyecto/"+trabajo.id} className="work-item-link">
+              <div className="mask">
+                <img src={"/images/"+trabajo.id+".png"} alt={trabajo.nombre} />
+              </div>
+              <span>{getTranslatedValue(trabajo.categorias)}</span>
+              <h2>{trabajo.nombre}</h2>
+              <h3>{trabajo.tecnologias}</h3>
+            </Link>
           </article>
           );
         })

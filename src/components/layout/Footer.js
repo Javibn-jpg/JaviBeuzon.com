@@ -6,7 +6,9 @@ export const Footer = () => {
   
   return (
     <footer className="footer">
+      <div className="footer-content">
         Portafolio Javier Beuzón Neva &copy; 2025. {texts.derechos}.
+      </div>
     </footer>
   )
 }

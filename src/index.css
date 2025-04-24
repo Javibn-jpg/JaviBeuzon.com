@@ -249,9 +249,14 @@ button,
   overflow: hidden;
   border: 1px solid #ddd;
   box-shadow: 0px 5px 15px #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .work-item img{
   width: 100%;
+  height: 100%;
+  object-fit: cover;
   transition: all 500ms;
 }
 
@@ -479,16 +484,12 @@ input:required:valid, textarea:required:valid {
   list-style: none;
   height: 132px;
   border-bottom: 3px solid #000;
-  
- 
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 1000;
   background-color: #fff; 
-  
-
   box-sizing: border-box;
   width: 85%;
   margin: 0 auto;
@@ -1011,4 +1012,511 @@ input:required:valid, textarea:required:valid {
   border-radius: 15px;
   font-size: 13px;
   font-weight: 500;
+}
+/* Media queries para responsividad */
+
+/* Variables para breakpoints */
+:root {
+  --mobile: 480px;
+  --tablet: 768px;
+  --laptop: 1024px;
+}
+
+/* Menú hamburguesa */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 21px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background-color: #000;
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+.dark-mode .menu-toggle span {
+  background-color: #fff;
+}
+
+.menu-toggle.active span:nth-child(1) {
+  transform: translateY(9px) rotate(45deg);
+}
+
+.menu-toggle.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-toggle.active span:nth-child(3) {
+  transform: translateY(-9px) rotate(-45deg);
+}
+
+/* Ajustes generales para móviles */
+@media (max-width: 768px) {
+  /* Layout */
+  .layout {
+    width: 95%;
+    padding-top: 80px; /* Reducir espacio para header más pequeño */
+  }
+
+  /* Header */
+  .header {
+    height: 70px;
+    width: 95%;
+  }
+
+  .header .logo span {
+    font-size: 50px;
+    margin-top: -4px;
+  }
+
+  .header .logo h3 {
+    font-size: 14px;
+    margin-left: 5px;
+  }
+
+  /* Mostrar menú hamburguesa */
+  .menu-toggle {
+    display: flex;
+  }
+
+  /* Navegación */
+  .header nav ul {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background-color: #fff;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 80px;
+    transition: all 0.3s ease;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .dark-mode .header nav ul {
+    background-color: #121212;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .header nav ul.active {
+    right: 0;
+  }
+
+  .header li {
+    margin: 15px 0;
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Ajustes Home */
+  .home h1 {
+    font-size: 32px;
+    margin-top: 40px;
+  }
+
+  .home h2 {
+    font-size: 18px;
+  }
+
+  /* Ajustes Portfolio */
+  .work-item {
+    flex-basis: 100%;
+    margin: 15px 0;
+  }
+
+  .work-item .mask {
+    height: 250px;
+  }
+
+  /* Ajustes Contacto */
+  .contacto-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="tel"],
+  textarea {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Ajustes CV */
+  .cv-skills-container {
+    flex-direction: column;
+  }
+
+  .certifications-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .technologies-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .timeline {
+    margin-left: 10px;
+  }
+
+  /* Botones y elementos de interacción */
+  .lang-btn,
+  .theme-btn {
+    padding: 4px;
+    margin: 5px 0;
+  }
+}
+
+/* Ajustes para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .layout {
+    width: 92%;
+    padding-top: 70px;
+  }
+
+  .header {
+    height: 60px;
+  }
+
+  .header .logo span {
+    font-size: 40px;
+  }
+
+  .header .logo h3 {
+    display: none;
+  }
+
+  .page .heading,
+  .home .heading {
+    font-size: 28px;
+  }
+
+  .work-item .mask {
+    height: 200px;
+  }
+
+  .home h1 {
+    font-size: 28px;
+  }
+
+  /* Ajustes formulario */
+  input[type="submit"],
+  button {
+    width: 100%;
+  }
+}
+
+/* Ajustes para tablets */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .layout {
+    width: 90%;
+  }
+
+  .work-item {
+    flex-basis: 45%;
+  }
+
+  .home h1 {
+    font-size: 48px;
+  }
+
+  .technologies-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+/* Overlay para cuando el menú móvil está abierto */
+.mobile-menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+}
+
+.mobile-menu-overlay.active {
+  display: block;
+}
+/* Ajuste del footer para todas las pantallas */
+.footer {
+  min-height: 40px;
+  line-height: 1.5; /* Cambiado de 7px a 1.5 para mejor legibilidad */
+  text-align: center;
+  font-size: 14px;
+  margin-top: 80px;
+  padding: 20px 15px; /* Cambiado de padding-top: 45px a padding completo */
+  border-top: 3px solid #000;
+  background: #f5f5f5;
+  color: #444;
+}
+
+/* Ajustes responsive para el footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 15px 10px;
+    font-size: 13px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    padding: 12px 8px;
+    font-size: 12px;
+    margin-top: 30px;
+    white-space: normal;
+    word-wrap: break-word;
+  }
+}
+
+/* Mantener estilos del modo oscuro */
+.dark-mode .footer {
+  background: #1a1a1a;
+  color: #e0e0e0;
+  border-top: 3px solid #fa4529;
+}
+
+/* Ajuste para el logo en pantallas pequeñas */
+@media (max-width: 480px) {
+  .header .logo span {
+    font-size: 40px;
+  }
+
+  /* En lugar de ocultar el nombre, lo hacemos más pequeño */
+  .header .logo h3 {
+    font-size: 12px; /* Reducir tamaño de fuente */
+    margin-left: 5px;
+    max-width: 120px; /* Limitar ancho */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Poner puntos suspensivos si no cabe */
+    white-space: nowrap; /* Evitar que se rompa en múltiples líneas */
+    display: block; /* Asegurar que se muestre */
+  }
+}
+
+/* Para pantallas muy pequeñas, podemos hacer el texto aún más pequeño */
+@media (max-width: 360px) {
+  .header .logo h3 {
+    font-size: 10px;
+    max-width: 100px;
+  }
+}
+/* Ajuste para el logo en pantallas pequeñas */
+@media (max-width: 768px) {
+  .header .logo h3 {
+    font-size: 14px;
+    margin-left: 5px;
+    max-width: 140px; /* Dar más espacio al texto */
+    white-space: nowrap; /* Evitar que se rompa en múltiples líneas */
+  }
+  
+  .header .logo span {
+    font-size: 45px; /* Reducir ligeramente la letra J para dar más espacio */
+  }
+}
+
+
+@media (max-width: 480px) {
+  .header {
+    padding: 0 10px; /* Añadir padding para mejor distribución del espacio */
+  }
+  
+  .header .logo {
+    max-width: 70%; /* Limitar el ancho del logo para dar más espacio */
+  }
+  
+  .header .logo span {
+    font-size: 36px; /* Reducir más la J */
+  }
+  
+  .header .logo h3 {
+    font-size: 12px;
+    margin-left: 3px;
+    max-width: 120px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* Para móviles muy pequeños */
+@media (max-width: 360px) {
+  .header .logo h3 {
+    font-size: 11px;
+    max-width: 110px;
+  }
+}
+/* Ajustes para el logo */
+.header .logo {
+  flex-grow: 2;
+  display: flex;
+  align-items: center; /* Centrar verticalmente los elementos */
+}
+
+.header .logo span {
+  display: block;
+  font-size: 90px;
+  font-weight: bolder;
+  margin-top: -8px;
+}
+
+.header .logo h3 {
+  display: block;
+  margin-left: 10px;
+  font-weight: 300;
+  text-transform: uppercase;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .header .logo {
+    flex-direction: row; /* Asegurar que los elementos estén en línea */
+    align-items: center;
+  }
+  
+  .header .logo span {
+    font-size: 40px;
+    margin-top: 0; /* Eliminar margen negativo */
+  }
+  
+  .header .logo h3 {
+    font-size: 14px;
+    margin-left: 10px;
+    max-width: none; /* Quitar restricción de ancho */
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .header .logo span {
+    font-size: 36px;
+  }
+  
+  .header .logo h3 {
+    font-size: 12px;
+    margin-left: 8px;
+  }
+}
+/* Ajustes para el logo y el nombre */
+.header .logo {
+  flex-grow: 2;
+  display: flex;
+  align-items: center; /* Alinear verticalmente */
+  flex-wrap: nowrap; /* Evitar que los elementos se envuelvan */
+}
+
+.header .logo span {
+  display: block;
+  font-size: 90px;
+  font-weight: bolder;
+  margin-top: -8px;
+  flex-shrink: 0; /* Evitar que la J se encoja */
+}
+
+.header .logo h3 {
+  display: block;
+  margin-left: 10px;
+  font-weight: 300;
+  text-transform: uppercase;
+  white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+  overflow: visible; /* Permite que el texto sea visible completamente */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+  .header {
+    justify-content: space-between; /* Distribuir espacio uniformemente */
+    padding: 0 10px; /* Añadir padding para mejor separación */
+  }
+  
+  .header .logo {
+    flex-grow: 1; /* Dar más espacio al logo */
+    justify-content: flex-start; /* Alinear al inicio */
+    overflow: visible; /* Asegurar visibilidad */
+  }
+  
+  .header .logo span {
+    font-size: 40px;
+    margin-top: 0; /* Eliminar margen negativo */
+    flex-shrink: 0; /* Evitar que la J se encoja */
+  }
+  
+  .header .logo h3 {
+    font-size: 14px;
+    margin-left: 8px;
+    white-space: nowrap; /* Mantener el texto en una sola línea */
+    overflow: visible; /* Permitir que el texto sea completamente visible */
+    text-overflow: clip; /* No usar elipsis */
+  }
+  
+  /* Hacer el menú toggle más pequeño para dar más espacio */
+  .menu-toggle {
+    width: 25px;
+    height: 18px;
+  }
+}
+
+/* Para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .header .logo span {
+    font-size: 36px;
+  }
+  
+  .header .logo h3 {
+    font-size: 12px;
+    margin-left: 5px;
+  }
+}
+
+/* Para asegurar que el header tenga espacio suficiente */
+@media (max-width: 768px) {
+  .header {
+    height: auto; /* Altura automática */
+    padding: 12px 10px; /* Padding vertical reducido */
+    min-height: 60px; /* Altura mínima */
+  }
+}
+
+.work-item-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* Para mantener el estilo original del título */
+.work-item-link h2 {
+  color: black;
+  font-size: 30px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+/* Para el modo oscuro */
+.dark-mode .work-item-link h2 {
+  color: #e0e0e0;
+}
+
+/* Para mantener la transición de color solo en el texto cuando se hace hover */
+.work-item-link:hover h2 {
+  color: #fa4529;
+}
+
+.page-work .mask img[src*="gestordeinventario"] {
+  position: relative;
+  transform: translateY(-30%); 
+  max-width: none; 
+  width: 100%; 
 }

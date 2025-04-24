@@ -75,6 +75,7 @@ export const Contacto = () => {
             value={formData.nombre}
             onChange={handleChange}
             required 
+            style={{width: '100%', boxSizing: 'border-box'}}
           />
           <input 
             type="text" 
@@ -83,6 +84,7 @@ export const Contacto = () => {
             value={formData.apellidos}
             onChange={handleChange}
             required 
+            style={{width: '100%', boxSizing: 'border-box'}}
           />
           <input 
             type="email" 
@@ -91,6 +93,7 @@ export const Contacto = () => {
             value={formData.email}
             onChange={handleChange}
             required 
+            style={{width: '100%', boxSizing: 'border-box'}}
           />
           <input 
             type="tel" 
@@ -99,6 +102,7 @@ export const Contacto = () => {
             value={formData.telefono}
             onChange={handleChange}
             required
+            style={{width: '100%', boxSizing: 'border-box'}}
           />
           <textarea 
             name="mensaje" 
@@ -106,12 +110,14 @@ export const Contacto = () => {
             value={formData.mensaje}
             onChange={handleChange}
             required
+            style={{width: '100%', boxSizing: 'border-box', minHeight: '150px'}}
           ></textarea>
           
           <input 
             type="submit" 
             value={loading ? texts.enviando : texts.enviar} 
             disabled={loading}
+            style={{width: '100%', boxSizing: 'border-box'}}
           />
           
           {status.submitted && (
@@ -129,7 +135,7 @@ export const Contacto = () => {
           </div>
           <div className="red-social">
             <i className="fab fa-github"></i>
-            <a href="https://github.com/Javi-ctrl586" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://github.com/Javibn-jpg" target="_blank" rel="noopener noreferrer">GitHub</a>
           </div>
 
           <div className="info-contacto">
