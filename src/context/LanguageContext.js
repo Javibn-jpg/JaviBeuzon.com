@@ -35,7 +35,7 @@ const translations = {
     diseñoyexperienciausuario: 'Diseño y Experiencia del usuario',
     descripcionPosicionamiento: 'Maquetación con HTML, CSS y JavaScript, diseño de interfaces (UI) y experiencia de usuario (UX), prototipos interactivos.',
     mantenimientoySeguridad: 'Mantenimiento y Seguridad',
-    descripcionMantenimientoySeguridad:'Actualizaciones y mantenimiento de sitios web, Ccopia de seguridad y recuperación, protección contra malware y ciberataques, certificados SSL e implementación de HTTPS',
+    descripcionMantenimientoySeguridad:'Actualizaciones y mantenimiento de sitios web, Copia de seguridad y recuperación, protección contra malware y ciberataques, certificados SSL e implementación de HTTPS',
     optimizacion: 'Optimización y Analisis',
     descripcionOptimizacion: 'SEO técnico (optimización para buscadores), análisis de tráfico web (con Google Analytics o herramientas similares).',
 

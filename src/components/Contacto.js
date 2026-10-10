@@ -142,6 +142,7 @@ export const Contacto = () => {
             <h3>{texts.infoContacto}</h3>
             <p><i className="fas fa-envelope"></i> jbn1031991@gmail.com</p>
             <p><i className="fas fa-phone"></i> +34 664036471</p>
+            <p><i className="fas fa-phone"></i> +37 6355450</p>
           </div>
         </div>
       </div>
